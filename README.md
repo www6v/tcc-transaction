@@ -49,9 +49,11 @@ tcc-transaction不和底层使用的rpc框架耦合，也就是使用doubbo,thri
 
 如果TRY阶段正常完成，则进入CONFIRM阶段，在CONFIRM阶段（tcc-transaction自动调用）,订单支付服务将订单状态变成CONFIRMED,同时远程调用红包帐户服务和资金帐户服务对应的CONFIRM方法，将收款方的余额增加。
 
-tcc-transaction-dubbo-order   订单服务
-tcc-transaction-dubbo-capital   资金帐户服务
-tcc-transaction-dubbo-redpacket   红包帐户服务
+tcc-transaction-dubbo-order   订单服务, 有try-confirm-cancel
+
+tcc-transaction-dubbo-capital   资金帐户服务,   有try-confirm-cancel
+
+tcc-transaction-dubbo-redpacket   红包帐户服务,   有try-confirm-cancel
 
 特别说明下，由于是示例，在CONFIRM和CANCEL方法中没有实现幂等性，如果在真实项目中使用，需要保证CONFIRM和CANCEL方法的幂等性。
 
