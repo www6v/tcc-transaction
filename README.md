@@ -51,7 +51,7 @@ tcc-transaction不和底层使用的rpc框架耦合，也就是使用doubbo,thri
 
 tcc-transaction-dubbo-order   订单服务, 有try-confirm-cancel
 
-tcc-transaction-dubbo-capital   资金帐户服务,   有try-confirm-cancel
+tcc-transaction-dubbo-capital   资金帐户服务,   有try-{ transferFrom账号减去转账的钱 } confirm{transferTo账号增加转账的钱}-cancel{ transferFrom账号加回try里扣除的钱}
 
 tcc-transaction-dubbo-redpacket   红包帐户服务,   有try-confirm-cancel
 
